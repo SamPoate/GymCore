@@ -182,6 +182,14 @@
     <Compile Include="Migrations\201812041119392_UserNames.Designer.cs">
       <DependentUpon>201812041119392_UserNames.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812041531342_RegisterUserName.cs" />
+    <Compile Include="Migrations\201812041531342_RegisterUserName.Designer.cs">
+      <DependentUpon>201812041531342_RegisterUserName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812041535484_RegisterUserName2.cs" />
+    <Compile Include="Migrations\201812041535484_RegisterUserName2.Designer.cs">
+      <DependentUpon>201812041535484_RegisterUserName2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -204,6 +212,7 @@
     <Content Include="wwwroot\css\home.css" />
     <Content Include="wwwroot\css\site.css" />
     <Content Include="wwwroot\css\workouts.css" />
+    <None Include="Properties\PublishProfiles\GymCore - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -226,8 +235,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -277,6 +284,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812041119392_UserNames.resx">
       <DependentUpon>201812041119392_UserNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812041531342_RegisterUserName.resx">
+      <DependentUpon>201812041531342_RegisterUserName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812041535484_RegisterUserName2.resx">
+      <DependentUpon>201812041535484_RegisterUserName2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

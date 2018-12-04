@@ -6,7 +6,7 @@ namespace GymCore.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [Display(Name = "Username")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
     }
 
@@ -49,7 +49,7 @@ namespace GymCore.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Username")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
         [Required]
@@ -68,6 +68,10 @@ namespace GymCore.Models
         public string Email { get; set; }
 
         [Required]
+        [Display(Name = "Username")]
+        public string Username { get; set; }
+
+        [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
@@ -82,7 +86,7 @@ namespace GymCore.Models
     public class ResetPasswordViewModel
     {
         [Required]
-        [Display(Name = "Username")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
         [Required]
@@ -102,7 +106,7 @@ namespace GymCore.Models
     public class ForgotPasswordViewModel
     {
         [Required]
-        [Display(Name = "Username")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
     }
 }

@@ -4,14 +4,10 @@
     font-family: 'Questrial', sans-serif;
 }
 
-a {
-    font-weight: normal;
+.navbartext {
+    font-weight: normal !important;
 }
 
 .footer {
     font-weight: lighter;
-}
-
-a:hover {
-    background-color: lightgray;
 }
