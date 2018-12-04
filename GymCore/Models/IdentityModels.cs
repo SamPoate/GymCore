@@ -1,8 +1,7 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace GymCore.Models
 {
@@ -29,5 +28,7 @@ namespace GymCore.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<GymCore.Models.WorkoutsModel> WorkoutsModels { get; set; }
     }
 }

@@ -1,0 +1,17 @@
+﻿body {
+    background-color: dimgrey;
+    color: #fff;
+    font-family: 'Questrial', sans-serif;
+}
+
+a {
+    font-weight: normal;
+}
+
+.footer {
+    font-weight: lighter;
+}
+
+a:hover {
+    background-color: lightgray;
+}

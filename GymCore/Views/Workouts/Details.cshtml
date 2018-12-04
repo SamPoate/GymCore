@@ -1,0 +1,111 @@
+﻿@model GymCore.Models.WorkoutsModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link href="~/wwwroot/css/workouts.css" rel="stylesheet" />
+</head>
+
+<h2>Details</h2>
+
+<div>
+    <h4>WorkoutsModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkoutName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkoutName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkoutSets)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkoutSets)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkoutReps1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkoutReps1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkoutReps2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkoutReps2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkoutReps3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkoutReps3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkoutReps4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkoutReps4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
