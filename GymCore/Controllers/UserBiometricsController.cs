@@ -25,7 +25,6 @@ namespace GymCore.Controllers
         //GET
         public ActionResult AddDetails()
         {
-
             return View();
         }
 
