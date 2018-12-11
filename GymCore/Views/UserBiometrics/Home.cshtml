@@ -1,0 +1,62 @@
+﻿@model GymCore.Models.UserBiometricsModel
+
+@{
+    ViewBag.Title = "Your Biometrics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link href="~/wwwroot/css/site.css" rel="stylesheet" />
+    <style>
+        .customTable {
+            font-size: 18px;
+        }
+
+        dd {
+            color: #00f1ff;
+        }
+    </style>
+</head>
+
+<h2>Your Biometrics</h2>
+
+<div class="customTable">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Height)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Height)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Add or Edit", "AddDetails")
+</p>

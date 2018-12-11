@@ -18,3 +18,7 @@ th {
 td {
     font-size: 16px !important;
 }
+
+.table-responsive {
+    border: 0;
+}

@@ -19,12 +19,13 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div class="navbartext">
-                @Html.ActionLink("Gym Core", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Gym Core", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Workouts", "Index", "Workouts")</li>
+                    <li>@Html.ActionLink("Members Workouts", "AllWorkouts", "Workouts")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -32,8 +33,8 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
+        <hr class="col-md-11"/>
+        <footer class="col-md-12">
             <p class="footer">&copy; @DateTime.Now.Year - Gym Core</p>
         </footer>
     </div>

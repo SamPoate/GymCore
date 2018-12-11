@@ -1,4 +1,5 @@
-﻿using GymCore.Models;
+﻿using GymCore.Helpers;
+using GymCore.Models;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Data.Entity;
@@ -13,8 +14,20 @@ namespace GymCore.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+
+        private string _un;
+        private string _pun;
+
+        public string LoggedInUserName => _un = User.Identity.GetUserName();
+        public string LoggedInPublicUsername => _pun = User.Identity.GetPublicUsername();
+
         // GET: Workouts
         public ActionResult Index()
+        {
+            return View(db.WorkoutsModels.ToList().Where(u => u.UserName == LoggedInPublicUsername));
+        }
+
+        public ActionResult AllWorkouts()
         {
             return View(db.WorkoutsModels.ToList());
         }
@@ -22,12 +35,17 @@ namespace GymCore.Controllers
         // GET: Workouts/Details/5
         public ActionResult Details(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             WorkoutsModel workoutsModel = db.WorkoutsModels.Find(id);
             if (workoutsModel == null)
+            {
+                return HttpNotFound();
+            }
+            if (LoggedInPublicUsername != workoutsModel.UserName)
             {
                 return HttpNotFound();
             }
@@ -50,7 +68,7 @@ namespace GymCore.Controllers
             if (ModelState.IsValid)
             {
                 workoutsModel.DateTime = DateTime.Now;
-                workoutsModel.UserName = User.Identity.GetUserName();
+                workoutsModel.UserName = LoggedInPublicUsername;
                 db.WorkoutsModels.Add(workoutsModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -71,6 +89,10 @@ namespace GymCore.Controllers
             {
                 return HttpNotFound();
             }
+            if (LoggedInPublicUsername != workoutsModel.UserName)
+            {
+                return HttpNotFound();
+            }
             return View(workoutsModel);
         }
 
@@ -85,7 +107,7 @@ namespace GymCore.Controllers
             {
                 //Need to change these to not change values from initial create
                 workoutsModel.DateTime = DateTime.Now;
-                workoutsModel.UserName = User.Identity.GetUserName();
+                workoutsModel.UserName = LoggedInPublicUsername;
                 db.Entry(workoutsModel).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -102,6 +124,10 @@ namespace GymCore.Controllers
             }
             WorkoutsModel workoutsModel = db.WorkoutsModels.Find(id);
             if (workoutsModel == null)
+            {
+                return HttpNotFound();
+            }
+            if (LoggedInPublicUsername != workoutsModel.UserName)
             {
                 return HttpNotFound();
             }
