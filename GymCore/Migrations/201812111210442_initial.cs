@@ -3,7 +3,7 @@ namespace GymCore.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -35,6 +35,7 @@ namespace GymCore.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        PublicUsername = c.String(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
@@ -76,6 +77,21 @@ namespace GymCore.Migrations
                 .Index(t => t.UserId);
             
             CreateTable(
+                "dbo.UserBiometricsModels",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        UserId = c.String(maxLength: 128),
+                        Height = c.Int(nullable: false),
+                        Weight = c.Int(nullable: false),
+                        Age = c.Int(nullable: false),
+                        Gender = c.String(maxLength: 10),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .Index(t => t.UserId);
+            
+            CreateTable(
                 "dbo.WorkoutsModels",
                 c => new
                     {
@@ -91,6 +107,7 @@ namespace GymCore.Migrations
                         WorkoutReps4 = c.Int(nullable: false),
                         Weight4 = c.Int(nullable: false),
                         DateTime = c.DateTime(nullable: false),
+                        UserName = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -98,10 +115,12 @@ namespace GymCore.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.UserBiometricsModels", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropIndex("dbo.UserBiometricsModels", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
@@ -109,6 +128,7 @@ namespace GymCore.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropTable("dbo.WorkoutsModels");
+            DropTable("dbo.UserBiometricsModels");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
