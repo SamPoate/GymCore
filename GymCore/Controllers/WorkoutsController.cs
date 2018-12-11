@@ -29,7 +29,7 @@ namespace GymCore.Controllers
 
         public ActionResult AllWorkouts()
         {
-            return View(db.WorkoutsModels.ToList());
+            return View(db.WorkoutsModels.ToList().Where(p => p.MakePublic == true));
         }
 
         // GET: Workouts/Details/5
@@ -63,7 +63,7 @@ namespace GymCore.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,WorkoutName,WorkoutSets,WorkoutReps1,Weight1,WorkoutReps2,Weight2,WorkoutReps3,Weight3,WorkoutReps4,Weight4")] WorkoutsModel workoutsModel)
+        public ActionResult Create([Bind(Include = "Id,WorkoutName,WorkoutSets,WorkoutReps1,Weight1,WorkoutReps2,Weight2,WorkoutReps3,Weight3,WorkoutReps4,Weight4,MakePublic")] WorkoutsModel workoutsModel)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +101,7 @@ namespace GymCore.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,WorkoutName,WorkoutSets,WorkoutReps1,Weight1,WorkoutReps2,Weight2,WorkoutReps3,Weight3,WorkoutReps4,Weight4")] WorkoutsModel workoutsModel)
+        public ActionResult Edit([Bind(Include = "Id,WorkoutName,WorkoutSets,WorkoutReps1,Weight1,WorkoutReps2,Weight2,WorkoutReps3,Weight3,WorkoutReps4,Weight4,MakePublic")] WorkoutsModel workoutsModel)
         {
             if (ModelState.IsValid)
             {

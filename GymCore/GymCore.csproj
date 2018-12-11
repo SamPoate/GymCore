@@ -183,6 +183,10 @@
     <Compile Include="Migrations\201812111210442_initial.Designer.cs">
       <DependentUpon>201812111210442_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812111335342_WorkoutsMakePublic.cs" />
+    <Compile Include="Migrations\201812111335342_WorkoutsMakePublic.Designer.cs">
+      <DependentUpon>201812111335342_WorkoutsMakePublic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -278,6 +282,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201812111210442_initial.resx">
       <DependentUpon>201812111210442_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812111335342_WorkoutsMakePublic.resx">
+      <DependentUpon>201812111335342_WorkoutsMakePublic.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

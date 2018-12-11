@@ -40,5 +40,7 @@ namespace GymCore.Models
 
         [DisplayName("Who lifted?")]
         public string UserName { get; set; }
+
+        public bool MakePublic { get; set; }
     }
 }
